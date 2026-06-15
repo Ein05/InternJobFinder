@@ -2,8 +2,9 @@ name: Weekly Scraper
 
 on:
   schedule:
-    - cron: '0 2 * * 1' # Chạy mỗi thứ Hai lúc 2:00 AM UTC (9:00 AM +7)
-  workflow_dispatch: # Cho phép chạy thủ công
+    - cron: '0 0 * * *'   # 7:00 SA giờ Việt Nam (UTC+7)
+    - cron: '0 12 * * *'  # 7:00 PM giờ Việt Nam (UTC+7)
+  workflow_dispatch:
 
 jobs:
   scrape:
