@@ -1,0 +1,100 @@
+[
+  {
+    "id": "fb-ai-comp-1",
+    "title": "Hanoi Hackathon 2026: AI & Smart City",
+    "organizer": "Hội Sinh Viên ĐHQGHN & FPT Software",
+    "organizerType": "University",
+    "category": "Tech",
+    "imageUrl": "https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&w=800&q=80",
+    "prizePool": "150,000,000 VND",
+    "deadline": "2026-06-30",
+    "startDate": "2026-07-08",
+    "location": "Trường Đại học Công nghệ, ĐHQGHN, Cầu Giấy, Hà Nội",
+    "tags": [
+      "Hackathon",
+      "AI",
+      "Smart City",
+      "Programming",
+      "Hanoi"
+    ],
+    "description": "Cuộc thi lập trình Hackathon kéo dài 24h nhằm tìm kiếm các ý tưởng ứng dụng AI để xây dựng đô thị thông minh tại khu vực Hà Nội. Đăng ký theo đội 3-4 người.",
+    "rounds": [
+      "Vòng 1: Đăng ký hồ sơ & Trình bày ý tưởng sơ bộ (Hạn 30/06)",
+      "Vòng 2: Lập trình tập trung 24h tại ĐHQGHN (08/07 - 09/07)",
+      "Vòng 3: Demo & Pitching trước Ban Giám Khảo (10/07)"
+    ],
+    "prizes": [
+      "Giải Nhất: 70,000,000 VND tiền mặt + Cúp lưu niệm",
+      "Giải Nhì: 30,000,000 VND tiền mặt",
+      "Giải Ba: 15,000,000 VND tiền mặt"
+    ],
+    "capacity": 100,
+    "registered": 68,
+    "link": "https://facebook.com/hnu.student.association/posts/839102918"
+  },
+  {
+    "id": "fb-ai-comp-2",
+    "title": "Kinh Doanh Số Trẻ - Digital Business Case 2026",
+    "organizer": "CLB Quản trị Kinh doanh Đại học Ngoại Thương (BA FTU)",
+    "organizerType": "Club",
+    "category": "Business",
+    "imageUrl": "https://images.unsplash.com/photo-1542744092-2ad48483b902?auto=format&fit=crop&w=800&q=80",
+    "prizePool": "100,000,000 VND",
+    "deadline": "2026-06-25",
+    "startDate": "2026-07-01",
+    "location": "Trường Đại học Ngoại Thương, Chùa Láng, Hà Nội",
+    "tags": [
+      "Business Case",
+      "Marketing",
+      "Strategy",
+      "Hanoi"
+    ],
+    "description": "Giải đấu phân tích tình huống kinh doanh thực tế dành cho sinh viên khối ngành kinh tế toàn quốc. Giải quyết bài toán chuyển đổi số doanh nghiệp.",
+    "rounds": [
+      "Vòng 1: Trắc nghiệm kiến thức và Giải Case sơ loại (Hạn 25/06)",
+      "Vòng 2: Xây dựng đề án Marketing & Vận hành (01/07 - 07/07)",
+      "Vòng 3: Chung kết hùng biện tại FTU Hà Nội (10/07)"
+    ],
+    "prizes": [
+      "Giải Quán Quân: 50,000,000 VND tiền mặt + Suất thực tập thẳng tại các tập đoàn đối tác",
+      "Giải Á Quân: 25,000,000 VND tiền mặt",
+      "Giải Quý Quân: 10,000,000 VND tiền mặt"
+    ],
+    "capacity": 120,
+    "registered": 82,
+    "link": "https://facebook.com/clb.baftu/posts/910398418"
+  },
+  {
+    "id": "fb-ai-comp-3",
+    "title": "Chương Trình Khởi Nghiệp Đổi Mới Sáng Tạo Startup Hanoi",
+    "organizer": "Vườn ươm Doanh nghiệp Hà Nội (HBI)",
+    "organizerType": "Enterprise",
+    "category": "Business",
+    "imageUrl": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
+    "prizePool": "250,000,000 VND",
+    "deadline": "2026-07-15",
+    "startDate": "2026-07-22",
+    "location": "Văn phòng HBI, Khu Đô Thị Nam Trung Yên, Cầu Giấy, Hà Nội",
+    "tags": [
+      "Startup",
+      "Pitching",
+      "Funding",
+      "Enterprise",
+      "Hanoi"
+    ],
+    "description": "Sân chơi ươm tạo khởi nghiệp đổi mới sáng tạo lớn nhất Hà Nội. Kết nối ý tưởng công nghệ kinh doanh của sinh viên với các quỹ đầu tư mạo hiểm hàng đầu.",
+    "rounds": [
+      "Vòng 1: Nộp ý tưởng & Slide Pitch Deck (Hạn 15/07)",
+      "Vòng 2: Tham gia khóa Huấn luyện Khởi nghiệp (22/07 - 28/07)",
+      "Vòng 3: Demo Day gọi vốn trực tiếp trước các Shark (01/08)"
+    ],
+    "prizes": [
+      "Giải Dự án tiềm năng nhất: 100,000,000 VND tài trợ ban đầu",
+      "Giải Giải pháp công nghệ xuất sắc: 50,000,000 VND",
+      "Gói hỗ trợ văn phòng làm việc miễn phí tại HBI trong 1 năm"
+    ],
+    "capacity": 60,
+    "registered": 24,
+    "link": "https://ybox.vn/cuoc-thi/hbi-startup-hanoi-pitching-849102"
+  }
+]

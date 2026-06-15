@@ -1,0 +1,37 @@
+name: Weekly Scraper
+
+on:
+  schedule:
+    - cron: '0 2 * * 1' # Chạy mỗi thứ Hai lúc 2:00 AM UTC (9:00 AM +7)
+  workflow_dispatch: # Cho phép chạy thủ công
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run scraper
+        env:
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+          GOOGLE_CX: ${{ secrets.GOOGLE_CX }}
+        run: node scripts/scrape_facebook.js
+
+      - name: Commit updated data
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add public/data/
+          git diff --staged --quiet || git commit -m "chore: update scraped job data [$(date '+%Y-%m-%d')]"
+          git push

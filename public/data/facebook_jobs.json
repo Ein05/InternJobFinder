@@ -1,0 +1,141 @@
+[
+  {
+    "id": "fb-ai-job-1",
+    "title": "Thực Tập Sinh Lập Trình Frontend (ReactJS)",
+    "company": "Rikkeisoft Hà Nội",
+    "logoUrl": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=120&q=80",
+    "location": "Hà Nội, Việt Nam",
+    "type": "Bán thời gian / Toàn thời gian",
+    "stipend": "6,000,000 - 8,000,000 VND / tháng",
+    "duration": "3 tháng",
+    "deadline": "2026-06-25",
+    "commitment": "Part-time",
+    "workplace": "Hybrid",
+    "tags": [
+      "React",
+      "CSS",
+      "Frontend",
+      "Facebook",
+      "Hanoi"
+    ],
+    "description": "Tuyển dụng Thực tập sinh ReactJS tại Rikkeisoft Cầu Giấy. Được đào tạo bài bản và tham gia dự án thực tế. Đăng ký trực tiếp qua liên kết bài viết Facebook.",
+    "requirements": [
+      "Sinh viên năm 3, 4 chuyên ngành Công nghệ thông tin.",
+      "Hiểu biết tốt về HTML, CSS, JavaScript (ES6) và ReactJS cơ bản.",
+      "Có tinh thần học hỏi cao, cam kết thực tập tối thiểu 3 tháng."
+    ],
+    "benefits": [
+      "Trợ cấp thực tập hấp dẫn theo năng lực.",
+      "Cơ hội trở thành nhân viên chính thức sau kỳ thực tập.",
+      "Hỗ trợ đóng dấu báo cáo thực tập tốt nghiệp."
+    ],
+    "industry": "Tech",
+    "experienceLevel": "Junior / Student",
+    "link": "https://facebook.com/groups/rikkeisoft.careers/posts/102938491823",
+    "scrapedFrom": "Facebook Public Post"
+  },
+  {
+    "id": "fb-ai-job-2",
+    "title": "Thực Tập Sinh Phân Tích Nghiệp Vụ (Business Analyst)",
+    "company": "OneMount Group",
+    "logoUrl": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=120&q=80",
+    "location": "Hà Nội, Việt Nam",
+    "type": "Toàn thời gian (Full-time)",
+    "stipend": "8,000,000 VND / tháng",
+    "duration": "6 tháng",
+    "deadline": "2026-06-20",
+    "commitment": "Full-time",
+    "workplace": "On-site",
+    "tags": [
+      "BA",
+      "SQL",
+      "Requirements",
+      "Facebook",
+      "Hanoi"
+    ],
+    "description": "Đội ngũ OneMount Group tuyển dụng Intern BA hỗ trợ khảo sát nghiệp vụ, phân tích tài liệu và viết User Stories cho các dự án thương mại dịch vụ số.",
+    "requirements": [
+      "Đang học năm cuối hoặc mới tốt nghiệp chuyên ngành Hệ thống thông tin, Kinh tế.",
+      "Tư duy logic tốt, kỹ năng giao tiếp và tiếng Anh đọc hiểu tốt.",
+      "Đã làm quen với SQL là một lợi thế lớn."
+    ],
+    "benefits": [
+      "Làm việc tại văn phòng hạng A tại Hà Nội.",
+      "Trợ cấp cạnh tranh kèm hỗ trợ gửi xe, trà, cà phê miễn phí.",
+      "Môi trường Agile năng động, học hỏi trực tiếp từ Product Owner."
+    ],
+    "industry": "Business",
+    "experienceLevel": "Junior / Student",
+    "link": "https://facebook.com/groups/ba.community.vietnam/posts/910398412",
+    "scrapedFrom": "Facebook Public Post"
+  },
+  {
+    "id": "fb-ai-job-3",
+    "title": "Thực Tập Sinh Digital Marketing & Content Creator",
+    "company": "VCCorp (Kênh 14)",
+    "logoUrl": "https://images.unsplash.com/photo-1542744094-3a31f103e35f?auto=format&fit=crop&w=120&q=80",
+    "location": "Hà Nội, Việt Nam",
+    "type": "Bán thời gian (Part-time)",
+    "stipend": "5,000,000 VND / tháng",
+    "duration": "3 tháng",
+    "deadline": "2026-06-30",
+    "commitment": "Part-time",
+    "workplace": "Hybrid",
+    "tags": [
+      "Marketing",
+      "Content",
+      "Canva",
+      "Facebook",
+      "Hanoi"
+    ],
+    "description": "Kênh 14 thuộc VCCorp Hà Nội tuyển dụng cộng tác viên/thực tập sinh viết bài, phát triển nội dung mạng xã hội và nghiên cứu xu hướng giới trẻ.",
+    "requirements": [
+      "Sinh viên các ngành Báo chí, Truyền thông, Marketing tại Hà Nội.",
+      "Có khả năng viết lách tốt, bắt trend nhanh nhạy.",
+      "Sử dụng cơ bản Canva, Photoshop hoặc CapCut."
+    ],
+    "benefits": [
+      "Trợ cấp nhuận bút hàng tháng theo năng suất.",
+      "Đào tạo chuyên môn báo chí truyền thông từ các anh chị đi trước.",
+      "Môi trường làm việc trẻ trung, sáng tạo."
+    ],
+    "industry": "Business",
+    "experienceLevel": "Junior / Student",
+    "link": "https://facebook.com/k14tuyendung/posts/8493108481",
+    "scrapedFrom": "Facebook Public Post"
+  },
+  {
+    "id": "fb-ai-job-4",
+    "title": "Python AI & Data Engineer Intern",
+    "company": "Viettel AI Aerospace",
+    "logoUrl": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=120&q=80",
+    "location": "Hà Nội, Việt Nam",
+    "type": "Toàn thời gian (Full-time)",
+    "stipend": "10,000,000 VND / tháng",
+    "duration": "6 tháng",
+    "deadline": "2026-07-05",
+    "commitment": "Full-time",
+    "workplace": "On-site",
+    "tags": [
+      "Python",
+      "AI",
+      "Machine Learning",
+      "Hanoi"
+    ],
+    "description": "Viettel AI tuyển dụng thực tập sinh phát triển thuật toán trí tuệ nhân tạo và xử lý dữ liệu lớn. Làm việc trực tiếp tại khu Công nghệ cao Hòa Lạc, Hà Nội.",
+    "requirements": [
+      "Sinh viên ngành CNTT, Khoa học máy tính hoặc Toán tin trường ĐHBK, ĐHQGHN.",
+      "Thành thạo lập trình Python và kiến thức cơ bản về Machine Learning/PyTorch.",
+      "Tư duy thuật toán tốt."
+    ],
+    "benefits": [
+      "Trợ cấp thực tập cao cùng xe buýt đưa đón từ nội thành Hà Nội.",
+      "Được tham gia các dự án nghiên cứu quy mô quốc gia.",
+      "Học hỏi trực tiếp từ các kỹ sư AI hàng đầu."
+    ],
+    "industry": "Tech",
+    "experienceLevel": "Advanced Student",
+    "link": "https://ybox.vn/tuyen-dung/viettel-ai-tuyen-python-intern-849102",
+    "scrapedFrom": "Ybox.vn Portal"
+  }
+]
