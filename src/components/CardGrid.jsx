@@ -4,17 +4,21 @@ export default function CardGrid({
   items, 
   currentCategory, 
   savedItems, 
-  onSaveToggle, 
-  onViewDetails
+  onSaveToggle,
 }) {
   const isSaved = (itemId) => savedItems.some(item => item.id === itemId);
+
+  const openLink = (item) => {
+    const url = item.link || item.url;
+    if (url) window.open(url, '_blank', 'noopener,noreferrer');
+  };
 
   if (items.length === 0) {
     return (
       <div className="empty-results glass-panel animate-fade-in-up">
         <div className="empty-icon">🔍</div>
         <h3>Không tìm thấy kết quả phù hợp</h3>
-        <p>Vui lòng thử lại với từ khóa khác hoặc điều chỉnh các bộ lọc tìm kiếm.</p>
+        <p>Dữ liệu đang được cập nhật, vui lòng thử lại sau hoặc điều chỉnh bộ lọc.</p>
       </div>
     );
   }
@@ -61,7 +65,7 @@ export default function CardGrid({
                 </button>
               </div>
 
-              <div className="card-body" onClick={() => onViewDetails(item, 'internship')}>
+              <div className="card-body" onClick={() => openLink(item)} style={{ cursor: 'pointer' }}>
                 <h3 className="card-title">{item.title}</h3>
                 <div className="stipend-info">
                   <span className="stipend-icon">💵</span> {item.stipend}
@@ -77,22 +81,24 @@ export default function CardGrid({
 
               <div className="card-footer">
                 <span className="deadline-text">Hạn nộp: {item.deadline}</span>
-                <button 
+                <a
+                  href={item.link || item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="btn btn-outline btn-sm"
-                  onClick={() => onViewDetails(item, 'internship')}
+                  onClick={(e) => e.stopPropagation()}
                 >
-                  Chi tiết
-                </button>
+                  Xem bài viết ↗
+                </a>
               </div>
             </div>
           );
         }
 
         if (currentCategory === 'competitions') {
-          // Render Competitions
           return (
             <div key={item.id} className="glass-panel opportunity-card event-card competition-card">
-              <div className="event-image-wrapper" onClick={() => onViewDetails(item, 'competition')}>
+              <div className="event-image-wrapper" onClick={() => openLink(item)} style={{ cursor: 'pointer' }}>
                 <img src={item.imageUrl} alt={item.title} className="event-image" />
                 <span className="event-price-tag badge badge-accent">
                   🏆 Giải: {item.prizePool.split(' ')[0]} {item.prizePool.split(' ')[1] || ''}
@@ -111,7 +117,7 @@ export default function CardGrid({
                 </button>
               </div>
 
-              <div className="card-body" onClick={() => onViewDetails(item, 'competition')}>
+              <div className="card-body" onClick={() => openLink(item)} style={{ cursor: 'pointer' }}>
                 <div className="organizer-badge-group">
                   <span className="event-organizer">
                     {item.organizer}
@@ -128,7 +134,7 @@ export default function CardGrid({
                 
                 <div className="event-time-location">
                   <span className="event-meta-item">
-                    📍 Địa điểm: {item.location}
+                    📍 {item.location}
                   </span>
                 </div>
 
@@ -141,13 +147,16 @@ export default function CardGrid({
               </div>
 
               <div className="card-footer">
-                <span className="capacity-text">Đội đăng ký: {item.registered}/{item.capacity}</span>
-                <button 
+                <span className="deadline-text">Hạn đăng ký: {item.deadline}</span>
+                <a
+                  href={item.link || item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="btn btn-primary btn-sm"
-                  onClick={() => onViewDetails(item, 'competition')}
+                  onClick={(e) => e.stopPropagation()}
                 >
-                  Xem chi tiết
-                </button>
+                  Xem bài viết ↗
+                </a>
               </div>
             </div>
           );
