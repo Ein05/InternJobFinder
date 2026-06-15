@@ -229,20 +229,22 @@ async function searchGoogle(query) {
   const res = await axios.get('https://www.googleapis.com/customsearch/v1', {
     params: {
       key: GOOGLE_API_KEY,
-      cx: GOOGLE_CX,
-      q: query,
+      cx:  GOOGLE_CX,
+      q:   query,
       num: 10,
-      hl: 'vi',
-      gl: 'vn'
+      hl:  'vi',
+      gl:  'vn',
+      dateRestrict: 'm1',  // Chỉ lấy kết quả trong 1 tháng gần nhất
+      sort: 'date',        // Sắp xếp mới nhất lên trước
     },
     timeout: 10000
   });
   const items = res.data.items || [];
   console.log(`   └─ Found ${items.length} results`);
   return items.map(item => ({
-    title: item.title,
-    url: item.link,
-    snippet: item.snippet || '',
+    title:      item.title,
+    url:        item.link,
+    snippet:    item.snippet || '',
     displayUrl: item.displayLink || ''
   }));
 }
@@ -617,15 +619,23 @@ async function runPipeline() {
   console.log('════════════════════════════════════════════');
   console.log(`Search engine: ${GOOGLE_API_KEY && GOOGLE_CX ? '✅ Google Custom Search API' : '⚠️  DuckDuckGo (no GOOGLE_API_KEY/GOOGLE_CX)'}\n`);
 
+  // Queries được tối ưu:
+  // - Dùng quotes để match chính xác
+  // - site: để target nguồn uy tín
+  // - after: để lọc kết quả mới (Google tự lọc thêm vào dateRestrict)
+  // - Tổng 8 queries = 8 API calls (trong giới hạn 100/ngày)
   const queries = [
-    'tuyển thực tập sinh Hà Nội 2026 site:facebook.com',
-    'cuộc thi sinh viên Hà Nội 2026 site:facebook.com',
-    '"thực tập sinh" "Hà Nội" 2026 -site:youtube.com',
-    '"cuộc thi" "sinh viên" "Hà Nội" 2026 -site:youtube.com',
-    'intern Hà Nội 2026 site:itviec.com',
-    'thực tập Hà Nội 2026 site:ybox.vn',
-    'thực tập sinh Hà Nội site:topcv.vn',
-    'cuộc thi lập trình Hà Nội 2026',
+    // === INTERNSHIP ===
+    '"thực tập sinh" "Hà Nội" tuyển dụng site:facebook.com',
+    '"thực tập" "Hà Nội" 2026 (lập trình OR marketing OR data OR BA)',
+    'tuyển thực tập intern "Hà Nội" site:itviec.com OR site:topcv.vn',
+    'thực tập sinh hà nội mới nhất site:ybox.vn',
+
+    // === COMPETITION ===
+    '"cuộc thi" "sinh viên" "Hà Nội" 2026 site:facebook.com',
+    '"hackathon" OR "pitching" OR "startup" "Hà Nội" sinh viên 2026',
+    'cuộc thi lập trình kinh doanh "Hà Nội" mới nhất site:ybox.vn',
+    '"giải thưởng" OR "học bổng" sinh viên công nghệ "Hà Nội" 2026',
   ];
 
   // 1. Search
