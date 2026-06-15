@@ -24,9 +24,15 @@ export default function App() {
   const [searchQuery, setSearchQuery] = useState('');
   const [filters, setFilters] = useState(INITIAL_FILTERS);
 
+  // Lọc hết hạn: deadline < hôm nay thì bỏ
+  const isNotExpired = (item) => {
+    if (!item.deadline) return true;
+    return new Date(item.deadline) >= new Date(new Date().toDateString());
+  };
+
   // Hanoi-only Internships & Competitions (Mock data + dynamic scraper feeds)
-  const [internships, setInternships] = useState(mockInternships);
-  const [competitions, setCompetitions] = useState(mockCompetitions);
+  const [internships, setInternships] = useState(mockInternships.filter(isNotExpired));
+  const [competitions, setCompetitions] = useState(mockCompetitions.filter(isNotExpired));
   const [isLoadingFeed, setIsLoadingFeed] = useState(false);
 
   // Fetch scraped JSON files from public directory on mount
@@ -42,7 +48,9 @@ export default function App() {
         if (jobsRes && jobsRes.length > 0) {
           setInternships(prev => {
             const existingIds = new Set(prev.map(item => item.id));
-            const newJobs = jobsRes.filter(job => !existingIds.has(job.id));
+            const newJobs = jobsRes
+              .filter(job => !existingIds.has(job.id))
+              .filter(isNotExpired); // Bỏ job hết hạn
             return [...prev, ...newJobs];
           });
         }
@@ -50,7 +58,9 @@ export default function App() {
         if (compsRes && compsRes.length > 0) {
           setCompetitions(prev => {
             const existingIds = new Set(prev.map(item => item.id));
-            const newComps = compsRes.filter(comp => !existingIds.has(comp.id));
+            const newComps = compsRes
+              .filter(comp => !existingIds.has(comp.id))
+              .filter(isNotExpired); // Bỏ cuộc thi hết hạn
             return [...prev, ...newComps];
           });
         }

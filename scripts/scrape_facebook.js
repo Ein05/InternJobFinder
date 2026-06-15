@@ -567,6 +567,9 @@ function buildCompetition(item) {
 }
 
 function extractStructured(crawledData) {
+  const today   = new Date();
+  today.setHours(0, 0, 0, 0);
+
   const jobs  = [];
   const comps = [];
   const seenIds = new Set();
@@ -587,6 +590,11 @@ function extractStructured(crawledData) {
     try {
       if (type === 'job') {
         const job = buildJob(item);
+        // Bỏ qua nếu hết hạn
+        if (new Date(job.deadline) < today) {
+          console.log(`   ⏰  Skip (expired ${job.deadline}): ${job.title.slice(0, 50)}`);
+          continue;
+        }
         if (!seenIds.has(job.id)) {
           seenIds.add(job.id);
           jobs.push(job);
@@ -594,6 +602,11 @@ function extractStructured(crawledData) {
         }
       } else {
         const comp = buildCompetition(item);
+        // Bỏ qua nếu hết hạn
+        if (new Date(comp.deadline) < today) {
+          console.log(`   ⏰  Skip (expired ${comp.deadline}): ${comp.title.slice(0, 50)}`);
+          continue;
+        }
         if (!seenIds.has(comp.id)) {
           seenIds.add(comp.id);
           comps.push(comp);
