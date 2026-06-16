@@ -1,5 +1,7 @@
 import React from 'react';
 
+const isFBLink = (url) => url && (url.includes('facebook.com') || url.includes('fb.com'));
+
 export default function CardGrid({ 
   items, 
   currentCategory, 
@@ -80,7 +82,14 @@ export default function CardGrid({
               </div>
 
               <div className="card-footer">
-                <span className="deadline-text">Hạn nộp: {item.deadline}</span>
+                <div className="footer-left">
+                  <span className="deadline-text">Hạn nộp: {item.deadline}</span>
+                  {isFBLink(item.link || item.url) && (
+                    <span className="fb-warning-badge" title="Bài đăng Facebook có thể yêu cầu đăng nhập để xem">
+                      🔑 Cần đăng nhập FB
+                    </span>
+                  )}
+                </div>
                 <a
                   href={item.link || item.url}
                   target="_blank"
@@ -147,7 +156,14 @@ export default function CardGrid({
               </div>
 
               <div className="card-footer">
-                <span className="deadline-text">Hạn đăng ký: {item.deadline}</span>
+                <div className="footer-left">
+                  <span className="deadline-text">Hạn đăng ký: {item.deadline}</span>
+                  {isFBLink(item.link || item.url) && (
+                    <span className="fb-warning-badge" title="Bài đăng Facebook có thể yêu cầu đăng nhập để xem">
+                      🔑 Cần đăng nhập FB
+                    </span>
+                  )}
+                </div>
                 <a
                   href={item.link || item.url}
                   target="_blank"

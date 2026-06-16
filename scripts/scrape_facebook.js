@@ -663,10 +663,14 @@ async function runPipeline() {
     await sleep(1200);
   }
 
-  // Dedup theo URL
+  // Dedup theo URL và lọc bỏ link nhóm kín Facebook (groups)
   const seen = new Set();
   const deduped = allResults.filter(r => {
     if (!r.url || seen.has(r.url)) return false;
+    if (r.url.includes('facebook.com/groups/') || r.url.includes('fb.com/groups/')) {
+      console.log(`   ⏭️  Skip FB Group URL: ${r.url}`);
+      return false;
+    }
     seen.add(r.url);
     return true;
   });
