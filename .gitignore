@@ -27,3 +27,14 @@ dist-ssr
 .env
 .env.local
 .env.production
+
+# Python
+__pycache__/
+*.pyc
+
+# Data Engineering local files
+pgdata/
+data/raw/
+airflow/logs/
+airflow/config/
+airflow/plugins/

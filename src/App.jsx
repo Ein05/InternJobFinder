@@ -29,18 +29,39 @@ export default function App() {
   const [competitions, setCompetitions] = useState([]);
   const [isLoadingFeed, setIsLoadingFeed] = useState(true);
 
-  // Load scraped JSON từ public/data/
+  // Load scraped JSON từ public/data/ hoặc từ API nếu khả dụng
   useEffect(() => {
     const loadScrapedData = async () => {
       try {
         setIsLoadingFeed(true);
         const base = import.meta.env.BASE_URL || '/';
-        const [jobsRes, compsRes] = await Promise.all([
-          fetch(`${base}data/facebook_jobs.json`).then(r => r.ok ? r.json() : []),
-          fetch(`${base}data/facebook_competitions.json`).then(r => r.ok ? r.json() : [])
-        ]);
-        setInternships((jobsRes || []).filter(isNotExpired));
-        setCompetitions((compsRes || []).filter(isNotExpired));
+        const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+        
+        let jobsData = [];
+        let compsData = [];
+        
+        try {
+          // Thử lấy dữ liệu từ API PostgreSQL
+          const [jobsRes, compsRes] = await Promise.all([
+            fetch(`${apiUrl}/api/jobs`).then(r => r.ok ? r.json() : Promise.reject()),
+            fetch(`${apiUrl}/api/competitions`).then(r => r.ok ? r.json() : Promise.reject())
+          ]);
+          jobsData = jobsRes;
+          compsData = compsRes;
+          console.log("⚡ Loaded live data from FastAPI PostgreSQL database");
+        } catch (apiErr) {
+          // Fallback về file tĩnh
+          console.warn("⚠️ API unavailable, falling back to static files:", apiErr);
+          const [jobsRes, compsRes] = await Promise.all([
+            fetch(`${base}data/facebook_jobs.json`).then(r => r.ok ? r.json() : []),
+            fetch(`${base}data/facebook_competitions.json`).then(r => r.ok ? r.json() : [])
+          ]);
+          jobsData = jobsRes;
+          compsData = compsRes;
+        }
+
+        setInternships((jobsData || []).filter(isNotExpired));
+        setCompetitions((compsData || []).filter(isNotExpired));
       } catch (err) {
         console.error('Failed to load scraped data:', err);
       } finally {
