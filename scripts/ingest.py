@@ -43,60 +43,14 @@ def search_google(query):
         print(f"   ❌ Google Search failed: {e}")
         raise e
 
-def search_duckduckgo(query):
-    print(f"🔍 [DDG Fallback] Searching: '{query}'...")
-    url = f"https://html.duckduckgo.com/html/?q={urllib.parse.quote(query)}"
-    headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
-    }
-    try:
-        res = requests.get(url, headers=headers, timeout=10)
-        res.raise_for_status()
-        soup = BeautifulSoup(res.text, 'html.parser')
-        results = []
-        for body in soup.find_all('div', class_='result__body'):
-            title_tag = body.find('a', class_='result__title')
-            snippet_tag = body.find('a', class_='result__snippet')
-            if not title_tag:
-                continue
-            
-            title = title_tag.get_text().strip()
-            snippet = snippet_tag.get_text().strip() if snippet_tag else ""
-            raw_url = title_tag.get('href', '')
-            
-            # Extract actual URL if it goes through DDG redirection
-            parsed_url = urllib.parse.urlparse(raw_url)
-            query_params = urllib.parse.parse_qs(parsed_url.query)
-            if 'uddg' in query_params:
-                url = query_params['uddg'][0]
-            else:
-                url = raw_url
-                
-            results.append({
-                'title': title,
-                'url': url,
-                'snippet': snippet,
-                'displayUrl': url
-            })
-        print(f"   └─ Found {len(results)} results")
-        return results[:8]
-    except Exception as e:
-        print(f"   ❌ DuckDuckGo search failed: {e}")
-        return []
-
 def search(query):
-    if GOOGLE_API_KEY and GOOGLE_CX:
-        try:
-            return search_google(query)
-        except Exception:
-            print("   ⚠️ Falling back to DuckDuckGo...")
-    else:
-        print("   ⚠️ GOOGLE_API_KEY/GOOGLE_CX not configured. Using DuckDuckGo...")
-    return search_duckduckgo(query)
+    if not GOOGLE_API_KEY or not GOOGLE_CX:
+        raise ValueError("❌ GOOGLE_API_KEY and GOOGLE_CX must be set in environment variables.")
+    return search_google(query)
 
 def crawl_page(url, snippet):
     if 'facebook.com' in url or 'fb.com' in url:
-        print(f"🕷️  [FB] Using Google/DDG snippet for Facebook: {url[:60]}...")
+        print(f"🕷️  [FB] Using Google snippet for Facebook: {url[:60]}...")
         return snippet
         
     print(f"🕷️  Crawling: {url[:60]}...")
