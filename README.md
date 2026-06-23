@@ -1,5 +1,8 @@
 # 🎓 UniHub InternJobFinder — Quy trình Data Engineering & Website tuyển dụng
 
+<img width="959" height="410" alt="image" src="https://github.com/user-attachments/assets/1702abe7-7810-4da9-8ef4-b62a87569f41" />
+
+
 **UniHub InternJobFinder** là nền tảng thu thập, xử lý dữ liệu và kết nối sinh viên với các cơ hội thực tập, sự kiện học thuật và cuộc thi công nghệ/kinh doanh tại Hà Nội. 
 
 Dự án được xây dựng dựa trên kiến trúc **Data Pipeline (ETL)** hiện đại chuẩn Data Engineering nhằm tự động hóa quy trình cào thông tin, làm sạch, khử trùng lặp và phân phối dữ liệu thông qua REST API tới ứng dụng React.
